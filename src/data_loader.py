@@ -313,12 +313,8 @@ class LoadData:
 
             mri_data = pd.read_csv(self.input_mri)
 
-            clinical_data = gene_data[["PATNO", "EVENT_ID", "GENDER", "AGE", "EDUC_YRS"]]
-            clinical_data_bl = clinical_data[clinical_data["EVENT_ID"] == "BL"]
-            clinical_data_clean = clinical_data_bl[clinical_data_bl['AGE'].notna()]
-
-            clinical_bl_clean = clinical_data_clean.merge(nhy_latest, how='inner', on=["PATNO"])
-            mri_data_clean = mri_data.merge(clinical_bl_clean, how='inner', on=["PATNO"])
+            mri_nhy_merge = mri_data.merge(nhy_latest, how='inner', on=["PATNO"])
+            mri_data_clean = mri_data.merge(mri_nhy_merge, how='inner', on=["PATNO"])
             mri_data_clean = mri_data_clean[
                 mri_data_clean["NHY"].notna() & (mri_data_clean["NHY"] != 101)
             ]
@@ -327,7 +323,6 @@ class LoadData:
                 col for col in mri_data_clean.columns
                 if col.startswith("EVENT_ID") 
                 or col in mri_drop_base])
-            X_data_mri['GENDER'] = X_data_mri['GENDER'].map({"Female": 1, "Male": 0})
             X_data = X_data_mri.copy()
             Y_data = mri_data_clean["NHY"].copy()
             if self.group_NHY:

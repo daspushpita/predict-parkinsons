@@ -1,8 +1,11 @@
 # Parkinson's disease severity prediction
 This library is designed for the Erdos Institute's data science bootcamp project.
 
-## Authors
-<a href="https://github.com/veenabala123"> Veena Balakrishnan </a>, <a href="https://github.com/daspushpita"> Pushpita Das </a>, <a href="https://github.com/skdecker"> Sydney Decker </a>, <a href="https://github.com/Sia-jaf"> Siavash Jafarizadeh </a>, <a href="https://github.com/dcsordillo"> Diana Sordillo </a>
+📌 Project Note
+
+All code, analysis, and documentation in this version represent independent work by Pushpita Das.
+Earlier iterations of this project were collaboratively developed as part of the bootcamp (<a href="https://github.com/veenabala123/summer-2025-parkinsonpredict"> Github).
+
 
 ## 🧠 Project Overview
 
@@ -47,6 +50,12 @@ summer-2025-parkinsonpredict
     ├── models                #notebooks for different models, training and testing
 ├── README.md
 ```
+## Results
+
+<p float="left">
+  <img src="outputs/Slide1.png" width="45%" />
+  <img src="outputs/model_comparison_plot.png" width="45%" />
+</p>
 
 ## ⚙️ Usage
 To access the data, you should request the data from PPMI directly.
